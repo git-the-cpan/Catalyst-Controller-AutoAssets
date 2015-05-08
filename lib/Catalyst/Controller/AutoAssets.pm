@@ -2,7 +2,7 @@ package Catalyst::Controller::AutoAssets;
 use strict;
 use warnings;
 
-our $VERSION = 0.31;
+our $VERSION = 0.32;
 
 use Moose;
 use namespace::autoclean;
@@ -71,7 +71,7 @@ sub BUILD {
   $self->_Handler;
 }
 
-sub index :Path {
+sub index :Chained :PathPrefix {
   my ($self, $c, @args) = @_;
   
   # New: set 'abort' just like Static::Simple to suppress log messages:
